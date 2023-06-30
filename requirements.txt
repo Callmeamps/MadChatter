@@ -1,0 +1,7 @@
+langchain
+openai
+chainlit
+supabase
+python-dotenv
+playwright > /dev/null
+lxml
