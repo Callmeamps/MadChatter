@@ -5,7 +5,7 @@ public = false
 
 # The project ID (found on https://cloud.chainlit.io).
 # The project ID is required when public is set to false or when using the cloud database.
-#id = "MadChatter-kLWSqJZhcp2L"
+id = "$CHAINLIT_CLOUD_ID"
 
 # Uncomment if you want to persist the chats.
 # local will create a database in your .chainlit directory (requires node.js installed).
