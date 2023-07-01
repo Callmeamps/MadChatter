@@ -1,0 +1,35 @@
+FROM python:3.10-slim-bullseye
+
+ENV PYTHONDONTWRITEBYTECODE=1
+
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /madchatter
+
+ARG OPENAI_API_KEY
+
+ARG CHAINLIT_HOST
+
+ARG CHAINLIT_PORT
+
+ARG CHAINLIT_CLOUD_ID
+
+ENV OPENAI_API_KEY=$OPENAI_API_KEY
+
+ENV CHAINLIT_HOST=$CHAINLIT_HOST
+
+ENV CHAINLIT_PORT=$CHAINLIT_PORT
+
+ENV CHAINLIT_CLOUD_ID=$CHAINLIT_CLOUD_ID
+
+COPY ./requirements.txt /madchatter
+
+RUN python3 -m pip install -r requirements.txt
+
+COPY . /madchatter
+
+RUN bash build.sh
+
+EXPOSE 8080
+
+CMD [ "chainlit" , "run", "-h", "app.py"]
