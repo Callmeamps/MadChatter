@@ -3,7 +3,7 @@ services:
   madchatter:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.arm
     environment:
       - OPENAI_API_KEY=your_openai_api_key
       - CHAINLIT_HOST=your_chainlit_host
