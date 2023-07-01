@@ -11,3 +11,9 @@ services:
       - 38080:8080
     volumes:
       - ./data:/madchatter/data
+    networks:
+      - madchatter-net
+
+networks:
+  madchatter-net:
+    driver: bridge
