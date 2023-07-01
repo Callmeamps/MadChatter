@@ -1,14 +1,12 @@
 version: '3'
 services:
-  madchatter:
-    build:
-      context: .
-      dockerfile: Dockerfile.arm
+  mad-chatter:
+    image: callmeamps/mad-chatter:arm64v8-0.0.3
     environment:
-      - OPENAI_API_KEY=your_openai_api_key
-      - CHAINLIT_HOST=your_chainlit_host
-      - CHAINLIT_PORT=your_chainlit_port
-      - CHAINLIT_CLOUD_ID=your_chainlit_cloud_id
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CHAINLIT_HOST=${CHAINLIT_HOST}
+      - CHAINLIT_PORT=${CHAINLIT_PORT}
+      - CHAINLIT_CLOUD_ID=${CHAINLIT_CLOUD_ID}
     ports:
       - 36789:8080
     volumes:

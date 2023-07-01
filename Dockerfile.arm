@@ -5,7 +5,10 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /madchatter
 
+RUN apt-get update && apt-get install -y gcc libc-dev
+
 COPY ./requirements.txt /madchatter
+
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
     
 RUN playwright install-deps
