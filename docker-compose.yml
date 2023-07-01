@@ -1,19 +1,15 @@
 version: '3'
 services:
-  mad-chatter:
-    image: callmeamps/mad-chatter:0.0.3
+  madchatter:
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
       - OPENAI_API_KEY=your_openai_api_key
       - CHAINLIT_HOST=your_chainlit_host
       - CHAINLIT_PORT=your_chainlit_port
       - CHAINLIT_CLOUD_ID=your_chainlit_cloud_id
     ports:
-      - 38080:8080
+      - 8080:8080
     volumes:
       - ./data:/madchatter/data
-    networks:
-      - madchatter-net
-
-networks:
-  madchatter-net:
-    driver: bridge
