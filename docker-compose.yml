@@ -8,6 +8,6 @@ services:
       - CHAINLIT_PORT=your_chainlit_port
       - CHAINLIT_CLOUD_ID=your_chainlit_cloud_id
     ports:
-      - 8080:8080
+      - 38080:8080
     volumes:
       - ./data:/madchatter/data
