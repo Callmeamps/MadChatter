@@ -1,7 +1,9 @@
 version: '3'
 services:
-  mad-chatter:
-    image: callmeamps/mad-chatter:0.0.3
+  madchatter:
+    build:
+      context: .
+      dockerfile: Dockerfile.arm
     environment:
       - OPENAI_API_KEY=your_openai_api_key
       - CHAINLIT_HOST=your_chainlit_host
