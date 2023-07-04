@@ -30,6 +30,10 @@ memory = ConversationBufferMemory(memory_key="chat_history")
 
 # Answer: Let's think step by step."""
 
+@cl.on_chat_start
+async def intro():
+    await cl.Message(content="Welcome To The Mad Chatter, Your AI powered Research Assistant.\nWhat would you like to do today?", author="System").send()
+
 @cl.langchain_rename
 def rename(orig_author: str):
     for tool in tools:
@@ -66,4 +70,4 @@ async def run(agent, input_str):
         cl.Action(name="action_button", value="example_value", description="Click me!")
     ]
     res = await agent.arun(input_str, callbacks=[cl.AsyncLangchainCallbackHandler()])
-    await cl.Message(content=res["text"], actions=actions).send()
+    await cl.Message(content=res, actions=actions).send()
